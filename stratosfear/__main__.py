@@ -1,9 +1,7 @@
-# main.py
-# Entry point and main menu loop
-
-from stratosfear.utils import p, GREEN, RESET
-from stratosfear.simulation import run_simulation
-from stratosfear.settings import (
+# stratosfear/__main__.py
+from .utils import p, GREEN, RESET
+from .simulation import run_simulation
+from .settings import (
     TERMINAL_PROFILES,
     set_terminal_profile,
     get_current_profile_name,
@@ -11,7 +9,6 @@ from stratosfear.settings import (
 
 
 def change_terminal_mode():
-    """Interactive menu to switch between terminal display modes."""
     p("\n--- TERMINAL DISPLAY MODES ---")
 
     profile_names = list(TERMINAL_PROFILES.keys())
@@ -44,7 +41,7 @@ def change_terminal_mode():
         p("Invalid selection.")
 
 
-if __name__ == "__main__":
+def main():
     p("\n" + "=" * 60)
     p("        STRATOS-FEAR RIDES - MISSION CONTROL")
     p("=" * 60)
@@ -76,3 +73,7 @@ if __name__ == "__main__":
             change_terminal_mode()
         else:
             p("Invalid choice. Try again.")
+
+
+if __name__ == "__main__":
+    main()
